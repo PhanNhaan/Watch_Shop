@@ -1,2 +1,0 @@
-D:\hoc\HK1_22_23\laptrinhdanentang\DoAn\APIWatchShop\APIWatchShop\obj\Debug\APIWatchShop.csproj.AssemblyReference.cache
-D:\hoc\HK1_22_23\laptrinhdanentang\DoAn\APIWatchShop\APIWatchShop\obj\Debug\APIWatchShop.csproj.CoreCompileInputs.cache
