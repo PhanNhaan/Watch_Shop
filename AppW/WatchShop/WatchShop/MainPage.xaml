@@ -86,6 +86,7 @@
                 </CollectionView.ItemTemplate>
             </CollectionView>
         </Grid>
+        
         <Grid x:Name="MenuGrid" IsVisible="False">
             <BoxView x:Name="MenuOverlay" BackgroundColor="Black" Opacity="0.35">
                 <BoxView.GestureRecognizers>

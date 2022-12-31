@@ -40,7 +40,7 @@ namespace WatchShop.ViewModel
 
         public void ShowDetails()
         {
-            var page = new DetailsPage() { BindingContext = new DetailsViewModel { SelectedProduct = SelectedProduct } };
+            var page = new View.DetailsPage() { BindingContext = new DetailsViewModel { SelectedProduct = SelectedProduct } };
             App.Current.MainPage.Navigation.PushAsync(page);
         }
 

@@ -6,8 +6,8 @@
              xmlns:st="clr-namespace:Plugin.SharedTransitions;assembly=Plugin.SharedTransitions"
              mc:Ignorable="d" BackgroundColor="#F5F6F6"
              NavigationPage.HasNavigationBar="False"
-             x:Class="WatchShop.DetailsPage">
-
+             x:Class="WatchShop.View.DetailsPage">
+    
     <Grid RowDefinitions="2*, *">
         <Image Aspect="Fill" Source="DetailsBg.png"/>
         <ImageButton Source="back.png" Margin="20" BackgroundColor="Transparent" HorizontalOptions="Start" VerticalOptions="Start"
