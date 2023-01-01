@@ -8,7 +8,7 @@
              NavigationPage.HasNavigationBar="False"
              x:Class="WatchShop.View.DetailsPage">
     <StackLayout>
-        <ScrollView>
+        <ScrollView x:Name="Productdetail">
             <Grid RowDefinitions="2*, *">
                 <Image Aspect="Fill" Source="DetailsBg.png"/>
                 <ImageButton Source="back.png" Margin="20" BackgroundColor="Transparent" HorizontalOptions="Start" VerticalOptions="Start"
@@ -16,21 +16,22 @@
                 <Grid WidthRequest="280" HeightRequest="360" HorizontalOptions="Center" VerticalOptions="Center">
                     <Path Fill="White" Aspect="Uniform"
                       Data="M48 169.745C48 162.708 51.6977 156.189 57.7371 152.579L297.737 9.0929C311.068 1.12286 328 10.7271 328 26.2589V331C328 342.046 319.046 351 308 351H68C56.9543 351 48 342.046 48 331V169.745Z"/>
-                    <Image Source="{Binding SelectedProduct.Image}" st:Transition.Name="WatchImage"/>
+                    <Image Source="{Binding HINH}" st:Transition.Name="WatchImage"/>
                 </Grid>
                 
                 <StackLayout Spacing="20" Grid.Row="1" Margin="30,0">
                     <Grid>
                         <StackLayout>
-                            <Label Text="{Binding SelectedProduct.Name}" TextColor="#2D2942" FontSize="25" FontAttributes="Bold"/>
-                            <Label Text="{Binding SelectedProduct.Model}" TextColor="#2D2942" FontSize="14" Opacity="0.5"/>
+                            <Label Text="{Binding TENSP}" TextColor="#2D2942" FontSize="25" FontAttributes="Bold"/>
+                            <Label Text="{Binding NAMSX}" TextColor="#2D2942" FontSize="14" Opacity="0.5"/>
+                            
                         </StackLayout>
-                        <Label Text="{Binding SelectedProduct.Price, StringFormat='{0} VNĐ'}" TextColor="#2D2942" FontSize="20" 
+                        <Label Text="{Binding DONGIA, StringFormat='{0} VNĐ'}" TextColor="#2D2942" FontSize="20" 
                            FontAttributes="Bold" HorizontalOptions="End"/>
                     </Grid>
                     <StackLayout>
                         <Label Text="Mô tả" TextColor="#2D2942" FontSize="16" FontAttributes="Bold"/>
-                        <Label Text="{Binding SelectedProduct.Description}" TextColor="#2D2942" FontSize="14" Opacity="0.5"/>
+                        <Label Text="{Binding MOTA}" TextColor="#2D2942" FontSize="14" Opacity="0.5"/>
                     </StackLayout>
                 </StackLayout>
             </Grid>

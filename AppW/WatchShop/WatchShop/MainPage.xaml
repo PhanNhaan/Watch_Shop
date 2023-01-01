@@ -41,8 +41,10 @@
                 <Image Grid.Column="1" Source="threeDots.png" VerticalOptions="Center" HeightRequest="20" 
                        WidthRequest="20"/>
             </Grid>
-            <CollectionView Grid.Row="3" SelectionMode="Single" ItemsSource="{Binding Products}"
-                            SelectedItem="{Binding SelectedProduct}" SelectionChanged="ProductSelected">
+            
+            <!--<CollectionView x:Name="ListProduct" Grid.Row="3" SelectionMode="Single" ItemsSource="{Binding Products}"
+                            SelectedItem="{Binding SelectedProduct}" SelectionChanged="ProductSelected">-->
+            <CollectionView x:Name="ListProduct" Grid.Row="3" SelectionMode="Single" SelectionChanged="ProductSelected">
                 <CollectionView.ItemsLayout>
                     <GridItemsLayout Orientation="Vertical" Span="2"/>
                 </CollectionView.ItemsLayout>
@@ -53,7 +55,7 @@
                 
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Grid RowDefinitions="*, 2.5*" HeightRequest="190" BackgroundColor="White" Padding="15">
+                        <Grid RowDefinitions="*, 4*" HeightRequest="190" BackgroundColor="White" Padding="15">
                             <Grid.Clip>
                                 <PathGeometry Figures="M20 96.5596C20 92.4719 22.0807 88.6655 25.5215 86.4586L146.521 8.85176C154.508 3.72922 165 9.46434 165 18.9527V185C165 191.627 159.627 197 153 197H32C25.3726 197 20 191.627 20 185V96.5596Z"/>
                             </Grid.Clip>
@@ -64,16 +66,16 @@
                             </Grid>
                             <StackLayout Grid.Row="1" Orientation="Horizontal" VerticalOptions="FillAndExpand" 
                                      HorizontalOptions="FillAndExpand" Padding="10,0,0,0">
-                                <Image Source="{Binding Image}" WidthRequest="45" HorizontalOptions="Start"
+                                <Image Source="{Binding HINH}" WidthRequest="45" HorizontalOptions="Start"
                                        st:Transition.Name="WatchImage"
-                                       st:Transition.Group="{Binding Name}"/>
+                                       st:Transition.Group="{Binding TENSP}"/>
                                 <StackLayout Spacing="5" VerticalOptions="CenterAndExpand">
-                                    <Label Text="{Binding Name}" TextColor="#2D2942" FontSize="14"/>
-                                    <Label Text="{Binding Model}" TextColor="#2D2942" FontSize="12" Opacity="0.5"/>
-                                    <Label Text="{Binding Price, StringFormat='{0} VNĐ'}" TextColor="#2D2942" FontSize="14" 
+                                    <Label Text="{Binding TENSP}" TextColor="#2D2942" FontSize="14"/>
+                                    <Label Text="{Binding NAMSX}" TextColor="#2D2942" FontSize="12" Opacity="0.5"/>
+                                    <Label Text="{Binding DONGIA, StringFormat='{0} VNĐ'}" TextColor="#2D2942" FontSize="14" 
                                            FontAttributes="Bold"/>
                                     <StackLayout Orientation="Horizontal">
-                                        <Label Text="{Binding Rating}" TextColor="#2D2942" FontSize="12" Opacity="0.5"/>
+                                        <Label Text="{Binding DANHGIA}" TextColor="#2D2942" FontSize="12" Opacity="0.5"/>
                                         <Path Aspect="Uniform" Fill="#FFC344" WidthRequest="12" HeightRequest="12"
                                           Data="M6 0L7.86916 3.42733L11.7063 4.1459L9.02436 6.98267L9.52671 10.8541L6 9.18L2.47329 10.8541L2.97564 6.98267L0.293661 4.1459L4.13084 3.42733L6 0Z"/>
                                         <Image Source="eye.png" WidthRequest="12" HeightRequest="12" Margin="5,0,0,0"/>

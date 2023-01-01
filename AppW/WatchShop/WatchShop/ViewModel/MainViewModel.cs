@@ -11,7 +11,7 @@ namespace WatchShop.ViewModel
     {
         public MainViewModel()
         {
-            Products = GetProducts();
+            //Products = GetProducts();
             MenuList = GetMenus();
         }
 
@@ -54,7 +54,7 @@ namespace WatchShop.ViewModel
                 new Menu { Icon = "settings.png", Name = "Cài đặt"}
             };
         }
-
+        /*
         private ObservableCollection<Product> GetProducts()
         {
             return new ObservableCollection<Product>
@@ -64,7 +64,7 @@ namespace WatchShop.ViewModel
                 new Product { Name = "Đồng hồ Pierre LD", Price = 1200000, Image = "marekWatch.png", Model = "Mẫu năm 2007", Rating = 5.0, Views = 4.9, Description = "sản phẩm đồng hồ nam thời trang FOURRON Japan 688 Nam tính , các chàng trai hoàn toàn có thể hô biến nó thành món phụ kiện nổi bật cho phong cách thời trang riêng của mình và kết hợp với nhiều trang phục khác nhau. "},
                 new Product { Name = "Đồng hồ Omega RD", Price = 8500000, Image = "rutgeWatch.png", Model = "Mẫu năm 1997", Rating = 4.6, Views = 4.7, Description = "ừ thời trang công sở lịch lãm với quần âu, áo sơ mi, vest cho đến thời trang casual hàng ngày với quần Jeans, áo pull hoặc ăn vận như một fashionita với skinny Jeans rách, áo Jacket da, kính mắt... Lựa chọn đồng hồ nam FOURRON Japan 688 Chuẩn Man, bạn chắc chắn sẽ là người đàn ông đích thực và “chuẩn không cần chỉnh”."},
             };
-        }
+        }*/
 
 
         public event PropertyChangedEventHandler PropertyChanged;
