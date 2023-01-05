@@ -28,7 +28,7 @@ namespace WatchShop
         async void ListViewInit()
         {
             HttpClient httpClient = new HttpClient();
-            var productlist = await httpClient.GetStringAsync("http://192.168.1.7/WatchShop/api/MainController/GetAllProduct");
+            var productlist = await httpClient.GetStringAsync(Host.url.ToString() + "WatchShop/api/MainController/GetAllProduct");
             var productlistConverted = JsonConvert.DeserializeObject<List<SanPham>>(productlist);
 
             ListProduct.ItemsSource = productlistConverted;

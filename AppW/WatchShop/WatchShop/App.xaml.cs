@@ -11,6 +11,7 @@ namespace WatchShop
         {
             InitializeComponent();
             Device.SetFlags(new[] { "Shapes_Experimental" });
+            //MainPage = new SharedTransitionNavigationPage(new View.LoginPage());
             MainPage = new SharedTransitionNavigationPage(new MainPage());
         }
 

@@ -31,15 +31,15 @@ namespace WatchShop.View
         {
             this.Navigation.PopAsync();
         }
-
+        /*
         async void GetBooksBySubjectId(string subjectId)
         {
             HttpClient httpClient = new HttpClient();
-            var booklist = await httpClient.GetStringAsync("http://192.168.1.28/nhan/api/ServiceController/GetBooksBySubjectID?macd="
+            var booklist = await httpClient.GetStringAsync(Host.url + "/nhan/api/ServiceController/GetBooksBySubjectID?macd="
                 + subjectId.ToString());
             var booklistConverted = JsonConvert.DeserializeObject<List<SanPham>>(booklist);
 
             //Productdetail.ItemsSource = booklistConverted;
-        }
+        }*/
     }
 }

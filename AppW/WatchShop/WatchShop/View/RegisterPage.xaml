@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WatchShop.View.RegisterPage">
+    <ContentPage.Content>
+        
+        <Grid>
+            
+            <StackLayout Padding="0" Margin="0">
+                <Frame BackgroundColor="LightPink" HeightRequest="130" HorizontalOptions="FillAndExpand">
+                    <ImageButton Source="back.png" Margin="20" BackgroundColor="Transparent" HorizontalOptions="Start" VerticalOptions="Start"
+                                 HeightRequest="24" WidthRequest="24" Clicked="BackTapped"/>
+                </Frame>
+            </StackLayout>
+            <StackLayout Margin="15,110,15,0">
+                <Frame BackgroundColor="White" HasShadow="True" HeightRequest="380" HorizontalOptions="FillAndExpand">
+                    <StackLayout Padding="10" VerticalOptions="Center">
+                        <Label Text="Đăng ký tài khoản" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center"/>
+
+                        <Entry x:Name="txttendn" Placeholder="Tên đăng nhập" FontSize="Medium" HorizontalOptions="FillAndExpand"/>
+
+                        <Entry x:Name="txtmatkhau" Placeholder="Nhập mật khẩu" FontSize="Medium" IsPassword="True"/>
+                        
+                        <Entry x:Name="txtmatkhaunl" Placeholder="Xác nhân mật khẩu" FontSize="Medium" IsPassword="True"/>
+
+                        <Entry x:Name="txtEmail" Placeholder= "Email" FontSize="Medium"/>
+
+                        <Entry x:Name="txtSdt" Placeholder="Số điện thoại" FontSize="Medium" />
+
+                        <Button x:Name="cmddangky" Text="Đăng ký" TextColor="White" BackgroundColor="SkyBlue" Clicked="cmddangky_Clicked"/>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

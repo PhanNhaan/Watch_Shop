@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WatchShop.View.LoginPage">
+    <ContentPage.Content>
+        <Grid>
+            
+            <StackLayout Padding="0" Margin="0">
+                <Frame BackgroundColor="LightPink" HeightRequest="130" HorizontalOptions="FillAndExpand">
+                    <ImageButton Source="back.png" Margin="20" BackgroundColor="Transparent" HorizontalOptions="Start" VerticalOptions="Start"
+                                 HeightRequest="30" WidthRequest="30" Clicked="BackTapped"/>
+                </Frame>
+            </StackLayout>
+
+            <StackLayout Margin="15,110,15,0">
+                <Frame BackgroundColor="White" HasShadow="True" HeightRequest="380" HorizontalOptions="FillAndExpand">
+                    <StackLayout Padding="10" VerticalOptions="Center">
+                        <Label Text="Đăng nhập" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center"/>
+
+                        <Entry x:Name="txttendn" Placeholder="Tên đăng nhập" FontSize="Medium"/>
+
+                        <Entry x:Name="txtmatkhau" Placeholder="Nhập mật khẩu" FontSize="Medium" IsPassword="True"/>
+
+                        <Button x:Name="cmddangnhap" Text="Đăng nhập" TextColor="White" BackgroundColor="SkyBlue" Clicked="cmddangnhap_Clicked"/>
+
+                        <StackLayout Orientation="Horizontal">
+                            <CheckBox IsChecked="False" Color="Black"/>
+
+                            <Label Text="Lưu tài khoản"  HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>
+
+                            <Label Text="Quên mật khẩu" HorizontalTextAlignment="End" TextColor="Black" HorizontalOptions="EndAndExpand" FontAttributes="Bold" VerticalTextAlignment="Center"/>
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                            <Label Text="Chưa có tài khoản?" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+
+                            <Button Text="Đăng ký"  FontAttributes="Bold" 
+                                    VerticalOptions="Center" HorizontalOptions="Center"
+                                    BackgroundColor="Transparent" Clicked="btnDangKi"/>
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
