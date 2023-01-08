@@ -37,7 +37,7 @@ namespace WatchShop.View
             string jsonlh = JsonConvert.SerializeObject(nd);
             StringContent httcontent = new StringContent(jsonlh, Encoding.UTF8, "application/json");
             HttpResponseMessage kq = await http.PostAsync
-                (Host.url.ToString() + "WatchShop/api/LoginController/ThemNguoiDung", httcontent);
+                (Host.url.ToString() + "api/LoginController/ThemNguoiDung", httcontent);
             var kqtv = await kq.Content.ReadAsStringAsync();
             nd = JsonConvert.DeserializeObject<NguoiDung>(kqtv);
             if (nd.MAND != null || nd.MAND != "")

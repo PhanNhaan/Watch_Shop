@@ -22,9 +22,10 @@ namespace WatchShop.View
 
         public DetailsPage(SanPham product)
         {
+            BindingContext= product;
             InitializeComponent();
             //GetBooksBySubjectId(product.MASP);
-            BindingContext= product;
+            
         }
 
         private void BackTapped(object sender, EventArgs e)

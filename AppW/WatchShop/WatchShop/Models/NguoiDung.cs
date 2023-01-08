@@ -13,5 +13,6 @@ namespace WatchShop.Models
         public string TENDN { get; set; }
         public string SDT { get; set; }
         public string EMAIL { get; set; }
+        public static NguoiDung nguoidung;
     }
 }

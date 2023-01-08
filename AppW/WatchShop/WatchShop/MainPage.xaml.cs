@@ -1,5 +1,5 @@
 ﻿using Newtonsoft.Json;
-using Plugin.SharedTransitions;
+//using Plugin.SharedTransitions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,7 +28,8 @@ namespace WatchShop
         async void ListViewInit()
         {
             HttpClient httpClient = new HttpClient();
-            var productlist = await httpClient.GetStringAsync(Host.url.ToString() + "WatchShop/api/MainController/GetAllProduct");
+            //var productlist = await httpClient.GetStringAsync("http://192.168.1.7/WatchShop/api/MainController/GetAllProduct");
+            var productlist = await httpClient.GetStringAsync(Host.url.ToString() + "api/MainController/GetAllProduct");
             var productlistConverted = JsonConvert.DeserializeObject<List<SanPham>>(productlist);
 
             ListProduct.ItemsSource = productlistConverted;
@@ -50,7 +51,6 @@ namespace WatchShop
             MenuGrid.IsVisible = false;
         }
 
-
         private void MenuTapped(object sender, EventArgs e)
         {
             OpenMenu();
@@ -60,12 +60,11 @@ namespace WatchShop
         {
             CloseMenu();
         }
-        
-        private void ProductSelected(object sender, SelectionChangedEventArgs e)
+        private async void ProductSelected(object sender, SelectionChangedEventArgs e)
         {
             //SanPham product = (SanPham)e.CurrentSelection;
             SanPham product = e.PreviousSelection.FirstOrDefault() as SanPham;
-            Navigation.PushAsync(new DetailsPage(product));
+            await Navigation.PushAsync(new DetailsPage(product));
             //SharedTransitionNavigationPage.SetTransitionSelectedGroup(this, vm.SelectedProduct.Name );
             //vm.ShowDetails();
         }

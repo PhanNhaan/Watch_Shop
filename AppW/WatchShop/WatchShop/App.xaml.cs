@@ -1,5 +1,7 @@
-﻿using Plugin.SharedTransitions;
+﻿//using Plugin.SharedTransitions;
 using System;
+using WatchShop.Models;
+using WatchShop.View;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,9 +12,11 @@ namespace WatchShop
         public App()
         {
             InitializeComponent();
-            Device.SetFlags(new[] { "Shapes_Experimental" });
-            //MainPage = new SharedTransitionNavigationPage(new View.LoginPage());
-            MainPage = new SharedTransitionNavigationPage(new MainPage());
+            NguoiDung.nguoidung = new NguoiDung();
+            //MainPage = new LoginPage();
+            //MainPage = new AddProduct();
+            MainPage = new Page1();
+
         }
 
         protected override void OnStart()

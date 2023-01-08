@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+            xmlns:local="clr-namespace:WatchShop" 
+            xmlns:views="clr-namespace:WatchShop.View"
+       xmlns:vm="clr-namespace:WatchShop.ViewModel"
+             x:Class="WatchShop.AppShell">
+
+    <Shell.BindingContext>
+        <vm:AppViewModel/>
+    </Shell.BindingContext>
+    
+    <Shell.FlyoutHeader>
+        <!--<DataTemplate>
+            <Grid BackgroundColor="Black"
+                  HeightRequest="200">
+                <Image Aspect="AspectFill"
+                       Source="xamarinstore.jpg"
+                       Opacity="0.6" />
+                <Label Text="Animals"
+                       TextColor="White"
+                       FontAttributes="Bold"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center" />
+            </Grid>
+        </DataTemplate>-->
+        <views:HeaderContent></views:HeaderContent>
+    </Shell.FlyoutHeader>
+
+    <FlyoutItem Title="MyApp" FlyoutDisplayOptions="AsMultipleItems"
+                Route="main" 
+                Shell.TabBarIsVisible="False">
+        <ShellContent Title="Trang chủ"
+                      Icon="HomeIcon.png"
+                      ContentTemplate="{DataTemplate local:MainPage}">
+        </ShellContent>
+
+    </FlyoutItem>
+
+    <FlyoutItem x:Name="account" Title="Account" FlyoutDisplayOptions="AsMultipleItems"
+                IsVisible="{Binding IsAccount}"
+                Shell.TabBarIsVisible="False">
+        <ShellContent Title="Giỏ hàng" 
+                      Icon="Cart.png"
+                      ContentTemplate="{DataTemplate views:LoginPage}">
+        </ShellContent>
+    </FlyoutItem>
+
+    <FlyoutItem x:Name="admin" Title="Admin" IsVisible="{Binding IsAdmin}"
+             Icon="./Resources/LaptopIcon.png" 
+              FlyoutDisplayOptions="AsMultipleItems">
+            <ShellContent Title="Quản lí đơn hàng" ContentTemplate="{DataTemplate views:LoginPage}"></ShellContent>
+            <ShellContent Title="Quản lí sản phẩm" ContentTemplate="{DataTemplate views:LoginPage}"></ShellContent>
+            <ShellContent Title="Quản lí người dùng" ContentTemplate="{DataTemplate views:LoginPage}"></ShellContent>
+        </FlyoutItem>
+    <FlyoutItem>
+        
+    </FlyoutItem>
+    <MenuItem x:Name="btndang" Text="{Binding Dangnhap}" Clicked="btndangxuat_Clicked"></MenuItem>
+    <!--<MenuItem x:Name="test" Text="test" Clicked="test_Clicked"></MenuItem>-->
+
+</Shell>

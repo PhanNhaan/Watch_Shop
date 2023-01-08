@@ -3,7 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:st="clr-namespace:Plugin.SharedTransitions;assembly=Plugin.SharedTransitions"
              mc:Ignorable="d" BackgroundColor="#F5F6F6"
              NavigationPage.HasNavigationBar="False"
              x:Class="WatchShop.View.DetailsPage">
@@ -16,7 +15,8 @@
                 <Grid WidthRequest="280" HeightRequest="360" HorizontalOptions="Center" VerticalOptions="Center">
                     <Path Fill="White" Aspect="Uniform"
                       Data="M48 169.745C48 162.708 51.6977 156.189 57.7371 152.579L297.737 9.0929C311.068 1.12286 328 10.7271 328 26.2589V331C328 342.046 319.046 351 308 351H68C56.9543 351 48 342.046 48 331V169.745Z"/>
-                    <Image Source="{Binding HINH}" st:Transition.Name="WatchImage"/>
+                    <Image Source="{Binding HINH}"/>
+                    <!--<Image Source="{Binding HINH}" st:Transition.Name="WatchImage"/>-->
                 </Grid>
                 
                 <StackLayout Spacing="20" Grid.Row="1" Margin="30,0">

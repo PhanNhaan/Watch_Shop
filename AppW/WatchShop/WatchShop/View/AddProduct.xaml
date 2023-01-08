@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WatchShop.View.AddProduct">
+    <ContentPage.Content>
+        <Grid>
+            <StackLayout Margin="0,0,0,0">
+                <Frame BackgroundColor="White" HasShadow="True" HeightRequest="380" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <StackLayout>
+                        <Label Text="Thêm sản phẩm" FontSize="Large" TextColor="Black" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center"/>
+
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="https://www.pngfind.com/pngs/m/673-6732463_transparent-new-icon-png-add-info-icon-png.png" WidthRequest="20" HeightRequest="20"/>
+                            <Label Text="Tên sản phẩm:" FontSize="Medium" FontAttributes="Bold" TextColor="Black"/>
+                            <Label Text="(*)" FontSize="Medium" FontAttributes="Bold" TextColor="red"/>
+                        </StackLayout>
+
+                        <StackLayout Margin="0,0,0,0">
+                            <Frame BackgroundColor="Transparent"  CornerRadius="50" Padding="0" Margin="0" HorizontalOptions="FillAndExpand" >
+                                <StackLayout Orientation="Horizontal">
+                                    <Entry x:Name="tensp" Placeholder=" Nhập tên sản phẩm." FontSize="Small" FontAttributes="Bold" HorizontalOptions="FillAndExpand"/>
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="https://cdn-icons-png.flaticon.com/512/493/493380.png" WidthRequest="20" HeightRequest="20"/>
+                            <Label Text=" Giá sản phẩm (VNĐ):" FontSize="Medium" FontAttributes="Bold" TextColor="Black"/>
+                            <Label Text="(*)" FontSize="Medium" FontAttributes="Bold" TextColor="red"/>
+                        </StackLayout>
+
+
+                        <StackLayout Margin="0,0,0,0">
+                            <Frame BackgroundColor="Transparent"  CornerRadius="50" Padding="0" Margin="0" HorizontalOptions="FillAndExpand" >
+                                <StackLayout Orientation="Horizontal">
+                                    <Entry x:Name="gia" Placeholder=" Nhập giá cho sản phẩm." FontSize="Small" FontAttributes="Bold" HorizontalOptions="FillAndExpand"/>
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Mô tả sản phẩm:" FontSize="Medium" FontAttributes="Bold" TextColor="Black"/>
+                            <Label Text="(*)" FontSize="Medium" FontAttributes="Bold" TextColor="red"/>
+                        </StackLayout>
+
+                        <StackLayout Margin="0,0,0,0">
+                            <Frame BackgroundColor="Transparent"  CornerRadius="50" Padding="0" Margin="0" HorizontalOptions="FillAndExpand" >
+                                <StackLayout Orientation="Horizontal">
+                                    <Entry x:Name="mota" Placeholder=" Nhập mô tả sản phẩm." FontSize="Small" FontAttributes="Bold" HorizontalOptions="FillAndExpand"/>
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Picture_icon_BLACK.svg/1200px-Picture_icon_BLACK.svg.png" WidthRequest="20" HeightRequest="20"/>
+                            <Label Text="Thêm hình ảnh:" FontSize="Medium" FontAttributes="Bold" TextColor="Black"/>
+                            <Label Text="(*)" FontSize="Medium" FontAttributes="Bold" TextColor="red"/>
+                        </StackLayout>
+
+                        <StackLayout Margin="0,0,0,0">
+                            <Frame BackgroundColor="Transparent"  CornerRadius="50" Padding="0" Margin="0" HorizontalOptions="FillAndExpand" >
+                                <StackLayout Orientation="Horizontal">
+                                    <Entry x:Name="hinh" Placeholder=" Nhập URL của hình ảnh tại đây." FontSize="Small" FontAttributes="Bold" HorizontalOptions="FillAndExpand"/>
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+
+                        <Label Text=" Năm sản xuất " FontSize="Medium" FontAttributes="Bold" TextColor="Black"/>
+
+                        <StackLayout Margin="0,0,0,0">
+                            <Frame BackgroundColor="Transparent"  CornerRadius="50" Padding="0" Margin="0" HorizontalOptions="FillAndExpand" >
+                                <StackLayout Orientation="Horizontal">
+                                    <Entry x:Name="namsx" Placeholder=" Nhập năm sản xuất ở đây." FontSize="Small" FontAttributes="Bold" HorizontalOptions="FillAndExpand"/>
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+
+                        <Label Text=" Hãng sản xuất " FontSize="Medium" FontAttributes="Bold" TextColor="Black"/>
+
+                        <StackLayout Margin="0,0,0,0">
+                            <Frame BackgroundColor="Transparent"  CornerRadius="50" Padding="0" Margin="0" HorizontalOptions="FillAndExpand" >
+                                <StackLayout Orientation="Horizontal">
+                                    <Entry x:Name="hangsx" Placeholder=" Nhập hãng sản xuất ở đây." FontSize="Small" FontAttributes="Bold" HorizontalOptions="FillAndExpand"/>
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+
+                        <Label Text=" Giới tính " FontSize="Medium" FontAttributes="Bold" TextColor="Black"/>
+
+                        <Picker x:Name="gioitinh" Title="Giới tính" TitleColor="Gray" FontSize="Small" FontAttributes="Bold">
+                            <Picker.Items>
+                                <x:String>Nam</x:String>
+                                <x:String>Nữ</x:String>
+                            </Picker.Items>
+                        </Picker>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" VerticalOptions="End" Margin="20,20,20,20">
+                <Button x:Name="btnthem" Text="Thêm sản phẩm" TextColor="White" BackgroundColor="SkyBlue" 
+                        HeightRequest="60" WidthRequest="200" HorizontalOptions="CenterAndExpand"
+                        Clicked="btnthem_Clicked"/>
+            </StackLayout>
+        </Grid>
+
+    </ContentPage.Content>
+</ContentPage>

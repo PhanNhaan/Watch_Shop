@@ -3,17 +3,20 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:st="clr-namespace:Plugin.SharedTransitions;assembly=Plugin.SharedTransitions"
+             
              xmlns:vm="clr-namespace:WatchShop.ViewModel"
              mc:Ignorable="d" BackgroundColor="#F5F6F6"
              NavigationPage.HasNavigationBar="False"
              x:Class="WatchShop.MainPage">
-
+<!--
+    xmlns:st="clr-namespace:Plugin.SharedTransitions;assembly=Plugin.SharedTransitions"
+ -->  
     <ContentPage.BindingContext>
         <vm:MainViewModel x:Name="vm"/>
     </ContentPage.BindingContext>
 
-    <Grid>
+    <ContentPage.Content>
+        <Grid>
         <Grid RowDefinitions="Auto, Auto, Auto, *" RowSpacing="30" Padding="30">
             <Grid ColumnDefinitions="Auto, *, Auto">
                 <ImageButton Source="menu.png" BackgroundColor="Transparent" VerticalOptions="Center" 
@@ -66,9 +69,11 @@
                             </Grid>
                             <StackLayout Grid.Row="1" Orientation="Horizontal" VerticalOptions="FillAndExpand" 
                                      HorizontalOptions="FillAndExpand" Padding="10,0,0,0">
-                                <Image Source="{Binding HINH}" WidthRequest="45" HorizontalOptions="Start"
+                                    <Image Source="{Binding HINH}" WidthRequest="45" HorizontalOptions="Start"/>
+<!--
+                                    <Image Source="{Binding HINH}" WidthRequest="45" HorizontalOptions="Start"
                                        st:Transition.Name="WatchImage"
-                                       st:Transition.Group="{Binding TENSP}"/>
+                                       st:Transition.Group="{Binding TENSP}"/>-->
                                 <StackLayout Spacing="5" VerticalOptions="CenterAndExpand">
                                     <Label Text="{Binding TENSP}" TextColor="#2D2942" FontSize="14"/>
                                     <Label Text="{Binding NAMSX}" TextColor="#2D2942" FontSize="12" Opacity="0.5"/>
@@ -119,4 +124,5 @@
             </Grid>
         </Grid>
     </Grid>
+    </ContentPage.Content>
 </ContentPage>
