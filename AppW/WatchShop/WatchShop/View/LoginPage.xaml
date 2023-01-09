@@ -2,23 +2,22 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="WatchShop.View.LoginPage"
-             
+             Shell.NavBarIsVisible="False"
              >
-<!--Shell.NavBarIsVisible="False"-->
-    
+<!--
     
     <Shell.BackButtonBehavior>
         <BackButtonBehavior Command="{Binding BackCommand}"
                             IconOverride="back.png" 
                             />
-    </Shell.BackButtonBehavior>
+    </Shell.BackButtonBehavior>-->
     <ContentPage.Content>
         <Grid>
             
             <StackLayout Padding="0" Margin="0">
                 <Frame BackgroundColor="LightPink" HeightRequest="130" HorizontalOptions="FillAndExpand">
-                    <ImageButton Source="back.png" Margin="20" BackgroundColor="Transparent" HorizontalOptions="Start" VerticalOptions="Start"
-                                 HeightRequest="30" WidthRequest="30" Clicked="BackTapped"/>
+                    <!--<ImageButton Source="back.png" Margin="20" BackgroundColor="Transparent" HorizontalOptions="Start" VerticalOptions="Start"
+                                 HeightRequest="30" WidthRequest="30" Clicked="BackTapped"/>-->
                 </Frame>
             </StackLayout>
 

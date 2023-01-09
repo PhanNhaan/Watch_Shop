@@ -44,7 +44,7 @@
                 Shell.TabBarIsVisible="False">
         <ShellContent Title="Giỏ hàng" 
                       Icon="Cart.png"
-                      ContentTemplate="{DataTemplate views:LoginPage}">
+                      ContentTemplate="{DataTemplate views:CartPage}">
         </ShellContent>
     </FlyoutItem>
 
@@ -59,6 +59,6 @@
         
     </FlyoutItem>
     <MenuItem x:Name="btndang" Text="{Binding Dangnhap}" Clicked="btndangxuat_Clicked"></MenuItem>
-    <!--<MenuItem x:Name="test" Text="test" Clicked="test_Clicked"></MenuItem>-->
+    <MenuItem x:Name="test" Text="test" Clicked="test_Clicked"></MenuItem>
 
 </Shell>

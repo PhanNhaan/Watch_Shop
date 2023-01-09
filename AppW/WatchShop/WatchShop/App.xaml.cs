@@ -15,8 +15,8 @@ namespace WatchShop
             NguoiDung.nguoidung = new NguoiDung();
             //MainPage = new LoginPage();
             //MainPage = new AddProduct();
-            MainPage = new Page1();
-
+            MainPage = new AppShell();
+            //MainPage = new CartPage();
         }
 
         protected override void OnStart()

@@ -63,7 +63,7 @@ if (NguoiDung.nguoidung == null)
                 //admin.IsVisible= false;
                 bool a = await DisplayAlert("TB", "Bạn có muốn đăng xuất không!!", "Có", "Không");
                 if (a == true)
-                    await Shell.Current.GoToAsync("/login");
+                    await Shell.Current.GoToAsync("login");
             }
         }
 

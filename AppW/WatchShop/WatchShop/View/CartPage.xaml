@@ -4,11 +4,27 @@
              x:Class="WatchShop.View.CartPage">
     <ContentPage.Content>
         <StackLayout>
-            <ListView x:Name="lstgiohang" HasUnevenRows="True">
-                <ListView.ItemTemplate>
+            <CollectionView x:Name="lstgiohang" SelectionMode="Single">
+                <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <ViewCell>
-                            <Grid >
+                        <SwipeView>
+                            <SwipeView.RightItems>
+                                <SwipeItems SwipeBehaviorOnInvoked="RemainOpen">
+                                    <SwipeItem Text="Xóa"
+                                           IconImageSource="DeleteIcon.png"
+                                           BackgroundColor="Red"
+                                           x:Name="sw_Delete"
+                                           CommandParameter="{Binding .}"
+                                           Invoked="sw_Delete_Invoked"></SwipeItem>
+                                    <SwipeItem Text="Sửa"
+                                           IconImageSource="adduser.png"
+                                           BackgroundColor="Green"
+                                           x:Name="sw_Update"
+                                           CommandParameter="{Binding .}"
+                                           Invoked="sw_Update_Invoked"></SwipeItem>
+                                </SwipeItems>
+                            </SwipeView.RightItems>
+                            <Grid Margin="10" Padding="10" HeightRequest="100" >
                                 <Grid.RowDefinitions>
                                     <RowDefinition></RowDefinition>
                                     <RowDefinition></RowDefinition>
@@ -21,46 +37,42 @@
                                     <ColumnDefinition Width="*" ></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
 
+                                <Image Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"
+                                             Source="{Binding HINH}"></Image>
+
+                                <Label Text="{Binding TENSP}"
+                                       Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2"></Label>
+
+                                <Label Text="{Binding DONGIA, StringFormat='{0} VNĐ'}"
+                                       Grid.Row="1" Grid.Column="1"></Label>
+
+                                <Grid ColumnDefinitions="*,*" Grid.Row="1" Grid.Column="2" HorizontalOptions="End">
+                                    <Label  Text="SL: " FontSize="20" TextColor="#F83A26" 
+                                            HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold"
+                                            WidthRequest="46" HeightRequest="46" Grid.Column="0"></Label>
+                                    <Entry x:Name="sl" Text="{Binding SOLUONG}" TextColor="Black" FontSize="20" Grid.Column="1"
+                                           HorizontalOptions="Center" VerticalOptions="Center" Keyboard="Numeric" WidthRequest="45" MaxLength="3"/>
+                                </Grid>
+
                             </Grid>
-                        </ViewCell>
+                        </SwipeView>
                     </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
 
 
 
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="80"/>
-                    <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-                <Grid Grid.Row="0" Margin="20,0,20,0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="30"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="30"/>
-                    </Grid.ColumnDefinitions>
-                    <ImageButton Source="https://cdn-icons-png.flaticon.com/512/0/340.png" Grid.Column="0" Aspect="AspectFit" HeightRequest="60" WidthRequest="60" VerticalOptions="Center" HorizontalOptions="Start"/>
-                </Grid>
+                <Label Margin="20,20,20,0" Grid.Row="0" Text="Phương thức thanh toán" FontAttributes="Bold" FontSize="20"/>
 
-                <Label Text="Giỏ hàng" FontSize="Large" TextColor="Black" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center"/>
-
-                <Label Margin="20,20,20,0" Grid.Row="2" Text="Danh sách" FontAttributes="Bold" FontSize="20"/>
-
-                <Frame Grid.Row="3" Margin="20,20,20,0" CornerRadius="15" BackgroundColor="White" IsClippedToBounds="True">
-                    <StackLayout>
-
-                    </StackLayout>
-                </Frame>
-
-                <Label Margin="20,20,20,0" Grid.Row="4" Text="Phương thức thanh toán" FontAttributes="Bold" FontSize="20"/>
-
-                <StackLayout Grid.Row="5" Margin="20,20,20,0">
+                <StackLayout Grid.Row="1" Margin="20,20,20,0">
                     <Frame CornerRadius="15" HeightRequest="45" Margin="0,10,0,10" Padding="10" IsClippedToBounds="True" HasShadow="True" BackgroundColor="White" >
                         <StackLayout Orientation="Horizontal">
                             <Image Source="https://cdn.pixabay.com/photo/2017/09/18/08/56/credit-card-2761073_960_720.png" WidthRequest="30" HorizontalOptions="Start" HeightRequest="30"/>
@@ -78,10 +90,6 @@
                     <StackLayout Orientation="Horizontal" VerticalOptions="End">
                         <Button Text="Xác nhận thanh toán" TextColor="White" BackgroundColor="SkyBlue" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" />
                     </StackLayout>
-                </StackLayout>
-
-                <StackLayout Grid.Row="6" Margin="20,20,20,20" >
-                    <ImageButton  Source="https://cdn-icons-png.flaticon.com/512/860/860829.png" HeightRequest="35" WidthRequest="40" VerticalOptions="Center" HorizontalOptions="Center"/>
                 </StackLayout>
             </Grid>
         </StackLayout>
