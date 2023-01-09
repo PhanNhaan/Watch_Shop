@@ -81,11 +81,9 @@
                                            FontAttributes="Bold"/>
                                     <StackLayout Orientation="Horizontal">
                                         <Label Text="{Binding DANHGIA}" TextColor="#2D2942" FontSize="12" Opacity="0.5"/>
-                                        <Path Aspect="Uniform" Fill="#FFC344" WidthRequest="12" HeightRequest="12"
+                                            <Path Aspect="Uniform" Fill="#FFC344" WidthRequest="12" HeightRequest="12"
                                           Data="M6 0L7.86916 3.42733L11.7063 4.1459L9.02436 6.98267L9.52671 10.8541L6 9.18L2.47329 10.8541L2.97564 6.98267L0.293661 4.1459L4.13084 3.42733L6 0Z"/>
-                                        <Image Source="eye.png" WidthRequest="12" HeightRequest="12" Margin="5,0,0,0"/>
-                                        <Label Text="{Binding Views}" TextColor="#2D2942" FontSize="12" Opacity="0.5"/>
-                                    </StackLayout>
+                                        </StackLayout>
                                 </StackLayout>
                             </StackLayout>
                         </Grid>

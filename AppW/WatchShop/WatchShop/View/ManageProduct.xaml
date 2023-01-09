@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WatchShop.View.ManageProduct"
+             Title="Quản lí sản phẩm"
+             Shell.TabBarIsVisible="False">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Thêm"
+                     Clicked="ToolbarItem_Clicked"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout>
+                <Frame HeightRequest="130" HorizontalOptions="FillAndExpand">
+                    <Image Source="https://www.thegioidongho.com.vn/wp-content/uploads/2022/04/z3362058804134_0c92e512630ee146673106351971d896-1.jpg" 
+                           Aspect="AspectFill"/>
+                </Frame>
+            </StackLayout>
+
+            <StackLayout Margin="0,0,10,0">
+                <Label Text="Thông tin đơn hàng" FontSize="Large" TextColor="Black" FontAttributes="Bold" HorizontalOptions="Center"/>
+            </StackLayout>
+
+            <CollectionView x:Name="qlsanpham" SelectionMode="Single" SelectionChanged="qlsanpham_SelectionChanged">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <SwipeView>
+                            <SwipeView.RightItems>
+                                <SwipeItems SwipeBehaviorOnInvoked="RemainOpen">
+                                    <SwipeItem Text="Xóa"
+                                           IconImageSource="DeleteIcon.png"
+                                           BackgroundColor="Red"
+                                           x:Name="sw_Delete"
+                                           CommandParameter="{Binding .}"
+                                           Invoked="sw_Delete_Invoked"></SwipeItem>
+                                    <SwipeItem Text="Sửa"
+                                           IconImageSource="adduser.png"
+                                           BackgroundColor="Green"
+                                           x:Name="sw_Update"
+                                           CommandParameter="{Binding .}"
+                                           Invoked="sw_Update_Invoked"></SwipeItem>
+                                </SwipeItems>
+                            </SwipeView.RightItems>
+
+                            <Grid HeightRequest="100" Margin="5">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="2*" ></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Image Source="{Binding HINH}" BackgroundColor="Transparent"
+                                             Grid.Column="0" Grid.Row="0" Grid.RowSpan="2"></Image>
+                                <Label Text="{Binding TENSP}" Grid.Column="1" Grid.Row="0" TextColor="Black" FontSize="20"/>
+                                <Label Text="{Binding DONGIA, StringFormat='{0} VNĐ'}"
+                                       Grid.Row="1" Grid.Column="1"></Label>
+                            </Grid>
+
+                        </SwipeView>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

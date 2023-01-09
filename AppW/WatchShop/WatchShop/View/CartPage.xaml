@@ -5,6 +5,11 @@
     <ContentPage.Content>
         <StackLayout>
             <CollectionView x:Name="lstgiohang" SelectionMode="Single">
+                <CollectionView.EmptyView>
+                    <Label Text="Không có sản phẩm trong giỏ hàng." FontSize="20" 
+                           VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                </CollectionView.EmptyView>
+                
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <SwipeView>
@@ -60,6 +65,14 @@
                 </CollectionView.ItemTemplate>
             </CollectionView>
 
+            <StackLayout Orientation="Horizontal" HorizontalOptions="End" >
+                <Label Text="Tổng tiền: " FontAttributes="Bold"
+                       FontSize="20" TextColor="Black"></Label>
+                <Label x:Name="tong"
+                       FontSize="20" TextColor="Black"></Label>
+                <Label Text=" VND"
+                       FontSize="20" TextColor="Black"></Label>
+            </StackLayout>
 
 
             <Grid>
@@ -88,7 +101,9 @@
                         </StackLayout>
                     </Frame>
                     <StackLayout Orientation="Horizontal" VerticalOptions="End">
-                        <Button Text="Xác nhận thanh toán" TextColor="White" BackgroundColor="SkyBlue" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" />
+                        <Button Text="Xác nhận thanh toán" TextColor="White" BackgroundColor="SkyBlue" 
+                                FontAttributes="Bold" HorizontalOptions="CenterAndExpand" 
+                                Clicked="Button_Clicked"/>
                     </StackLayout>
                 </StackLayout>
             </Grid>

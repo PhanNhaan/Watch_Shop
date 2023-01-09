@@ -5,6 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" BackgroundColor="#F5F6F6"
              NavigationPage.HasNavigationBar="False"
+             Shell.TabBarIsVisible="False"
              x:Class="WatchShop.View.DetailsPage">
     <StackLayout>
         <ScrollView x:Name="Productdetail">
@@ -18,17 +19,36 @@
                     <Image Source="{Binding HINH}"/>
                     <!--<Image Source="{Binding HINH}" st:Transition.Name="WatchImage"/>-->
                 </Grid>
-                
+
                 <StackLayout Spacing="20" Grid.Row="1" Margin="30,0">
                     <Grid>
-                        <StackLayout>
-                            <Label Text="{Binding TENSP}" TextColor="#2D2942" FontSize="25" FontAttributes="Bold"/>
-                            <Label Text="{Binding NAMSX}" TextColor="#2D2942" FontSize="14" Opacity="0.5"/>
-                            
-                        </StackLayout>
-                        <Label Text="{Binding DONGIA, StringFormat='{0} VNĐ'}" TextColor="#2D2942" FontSize="20" 
-                           FontAttributes="Bold" HorizontalOptions="End"/>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        
+                        <Label Text="{Binding TENSP}" TextColor="#2D2942" 
+                               FontSize="25" FontAttributes="Bold"
+                               Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"/>
+                        <Label Text="{Binding NAMSX, StringFormat='Sản xuất năm: {0}'}" TextColor="#2D2942" 
+                               FontSize="14" Opacity="0.5" VerticalOptions="Center"
+                               Grid.Column="0" Grid.Row="1"/>
+                         
+                        <Label Text="{Binding DONGIA, StringFormat='{0} VNĐ'}" TextColor="#2D2942" 
+                               FontSize="20" FontAttributes="Bold" HorizontalOptions="End"
+                               Grid.Column="1" Grid.Row="1"/>
                     </Grid>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="{Binding DANHGIA, StringFormat='Đánh giá: {0}'}" TextColor="#2D2942" FontSize="12" Opacity="0.5"/>
+                        <Path Aspect="Uniform" Fill="#FFC344" WidthRequest="12" HeightRequest="12"
+                          Data="M6 0L7.86916 3.42733L11.7063 4.1459L9.02436 6.98267L9.52671 10.8541L6 9.18L2.47329 10.8541L2.97564 6.98267L0.293661 4.1459L4.13084 3.42733L6 0Z"/>
+                    </StackLayout>
+                    
                     <StackLayout>
                         <Label Text="Mô tả" TextColor="#2D2942" FontSize="16" FontAttributes="Bold"/>
                         <Label Text="{Binding MOTA}" TextColor="#2D2942" FontSize="14" Opacity="0.5"/>
@@ -37,28 +57,26 @@
             </Grid>
         </ScrollView>
         
-        <StackLayout Orientation="Horizontal" Spacing="30" Margin="5">
-            <Button Text="-" FontSize="20" TextColor="#F83A26" BackgroundColor="#F5F6F6"
-                            HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold"
-                            WidthRequest="46" HeightRequest="46" CornerRadius="32" ></Button>
-            <!--<Grid>
-                        <Ellipse Aspect="Uniform" WidthRequest="32" HeightRequest="32" Fill="White"/>
-                        <Path Aspect="Uniform" Stroke="#F83A26" StrokeThickness="2" Data="M5 12H19" StrokeLineCap="Round" 
-                              StrokeLineJoin="Round" HorizontalOptions="Center" VerticalOptions="Center"/>
-                    </Grid>-->
-            <Label Text="1" TextColor="Black" FontSize="20" HorizontalOptions="Center" VerticalOptions="Center"/>
-            <Button Text="+" FontSize="20" TextColor="#F83A26" BackgroundColor="#F5F6F6" 
+        <Grid ColumnDefinitions="*,*,*,5*" Margin="5" x:Name="gh">
+            <Button x:Name="tru" Text="-" FontSize="20" TextColor="#F83A26" BackgroundColor="#F5F6F6"
                     HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold"
-                    WidthRequest="46" HeightRequest="46" CornerRadius="32" ></Button>
-            <!--<Grid>
-                        <Ellipse Aspect="Uniform" WidthRequest="32" HeightRequest="32" Fill="White"/>
-                        <Path Aspect="Uniform" Stroke="#F83A26" StrokeThickness="2" Data="M12 5V19" StrokeLineCap="Round" 
-                              StrokeLineJoin="Round" HorizontalOptions="Center" VerticalOptions="Center"/>
-                        <Path Aspect="Uniform" Stroke="#F83A26" StrokeThickness="2" Data="M5 12H19" StrokeLineCap="Round" 
-                              StrokeLineJoin="Round" HorizontalOptions="Center" VerticalOptions="Center"/>
-                    </Grid>-->
-            <Button WidthRequest="190" HeightRequest="46" CornerRadius="32" HorizontalOptions="End" BackgroundColor="#F83A26"
-                            Text="Thêm vào giỏ hàng" TextColor="White" FontSize="14"/>
-        </StackLayout>
+                    WidthRequest="46" HeightRequest="46" CornerRadius="32" 
+                    Grid.Column="0"
+                    Clicked="tru_Clicked"></Button>
+            
+            <Entry x:Name="kq" Text="1" TextColor="Black" FontSize="20" 
+                   HorizontalOptions="Center" VerticalOptions="Center" 
+                   Keyboard="Numeric" WidthRequest="45" MaxLength="3"
+                   Grid.Column="1"/>
+            
+            <Button x:Name="cong" Text="+" FontSize="20" TextColor="#F83A26" BackgroundColor="#F5F6F6" 
+                    HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold"
+                    WidthRequest="46" HeightRequest="46" CornerRadius="32" 
+                    Clicked="cong_Clicked" Grid.Column="2"></Button>
+            
+            <Button x:Name="themgh" WidthRequest="250" HeightRequest="46" CornerRadius="32" HorizontalOptions="End" BackgroundColor="#F83A26"
+                            Text="Thêm vào giỏ hàng" TextColor="White" FontSize="14" 
+                    Grid.Column="3" Clicked="themgh_Clicked"/>
+        </Grid>
     </StackLayout>
 </ContentPage>

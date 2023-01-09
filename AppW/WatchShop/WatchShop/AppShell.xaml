@@ -6,6 +6,8 @@
             xmlns:local="clr-namespace:WatchShop" 
             xmlns:views="clr-namespace:WatchShop.View"
        xmlns:vm="clr-namespace:WatchShop.ViewModel"
+       
+       
              x:Class="WatchShop.AppShell">
 
     <Shell.BindingContext>
@@ -51,9 +53,9 @@
     <FlyoutItem x:Name="admin" Title="Admin" IsVisible="{Binding IsAdmin}"
              Icon="./Resources/LaptopIcon.png" 
               FlyoutDisplayOptions="AsMultipleItems">
-            <ShellContent Title="Quản lí đơn hàng" ContentTemplate="{DataTemplate views:LoginPage}"></ShellContent>
-            <ShellContent Title="Quản lí sản phẩm" ContentTemplate="{DataTemplate views:LoginPage}"></ShellContent>
-            <ShellContent Title="Quản lí người dùng" ContentTemplate="{DataTemplate views:LoginPage}"></ShellContent>
+            <ShellContent Title="Quản lí đơn hàng" ContentTemplate="{DataTemplate views:ManageProduct}"></ShellContent>
+        <ShellContent Title="Quản lí sản phẩm" ContentTemplate="{DataTemplate views:ManageProduct}"></ShellContent>
+            <ShellContent Title="Quản lí người dùng" ContentTemplate="{DataTemplate views:ManageAccount}"></ShellContent>
         </FlyoutItem>
     <FlyoutItem>
         

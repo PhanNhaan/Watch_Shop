@@ -22,6 +22,20 @@ namespace WatchShop.View
             reset();
         }
 
+        public AddProduct(SanPham sp)
+        {
+            InitializeComponent();
+            tsp.Text = "Sửa sản phẩm";
+            tensp.Text = sp.TENSP;
+            gia.Text = sp.DONGIA.ToString();
+            mota.Text = sp.MOTA;
+            hinh.Text = sp.HINH;
+            namsx.Text = sp.NAMSX.ToString();
+            hangsx.Text = sp.HANGSX;
+            if (sp.GIOITINH =="Nam")
+                gioitinh.SelectedIndex = 0;
+            else gioitinh.SelectedIndex = 1;
+        }
 
         private void reset()
         {

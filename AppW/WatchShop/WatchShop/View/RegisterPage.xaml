@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="WatchShop.View.RegisterPage">
+             x:Class="WatchShop.View.RegisterPage"
+             Shell.TabBarIsVisible="False">
     <ContentPage.Content>
         
         <Grid>
@@ -25,7 +26,14 @@
 
                         <Entry x:Name="txtEmail" Placeholder= "Email" FontSize="Medium"/>
 
-                        <Entry x:Name="txtSdt" Placeholder="Số điện thoại" FontSize="Medium" />
+                        <Entry x:Name="txtSdt" Placeholder="Số điện thoại" FontSize="Medium" Keyboard="Numeric" MaxLength="10"/>
+
+                        <Picker x:Name="quyen" Title="Quyền" TitleColor="Gray" FontSize="Small" FontAttributes="Bold" >
+                            <Picker.Items>
+                                <x:String>USER</x:String>
+                                <x:String>ADMIN</x:String>
+                            </Picker.Items>
+                        </Picker>
 
                         <Button x:Name="cmddangky" Text="Đăng ký" TextColor="White" BackgroundColor="SkyBlue" Clicked="cmddangky_Clicked"/>
                     </StackLayout>

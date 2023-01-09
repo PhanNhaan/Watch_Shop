@@ -63,12 +63,47 @@ namespace APIWatchShop.Controllers
                 //return Ok("Chào mừng bạn đến với Web API!");
                 string kq = Database.Database.Exec_Command("ThemNguoiDung", param).ToString();
                 //return Ok("Chào mừng bạn đến với Web API!");
-                if (kq != null || kq!= "")
+                if (kq != null && kq!= "")
                     nd.MAND = kq;
 
                 //NguoiDung kq = Database.ThemNguoiDung(nd);
                 //return Ok("Chào mừng bạn đến với Web API!");
                 return Ok(nd) ;
+            }
+            catch
+            {
+                return NotFound();
+            }
+        }
+
+        [Route("api/LoginController/TatCaNguoiDung")]
+        [HttpGet]
+        public IHttpActionResult GetDecentralization()
+        {
+            try
+            {
+                DataTable result = Database.Database.ReadTable("TatCaNguoiDung");
+                return Ok(result);
+            }
+            catch
+            {
+                return NotFound();
+            }
+        }
+
+        [Route("api/LoginController/XoaNguoiDung")]
+        [HttpPost]
+        public IHttpActionResult XoaNguoiDung(NguoiDung nd)
+        {
+            try
+            {
+                Dictionary<string, object> param = new Dictionary<string, object>();
+                param.Add("mand", nd.MAND);
+                string kq = Database.Database.Exec_Command("XoaNguoiDung", param).ToString();
+                if (kq != null && kq != "")
+                    nd.MAND = kq;
+
+                return Ok(nd);
             }
             catch
             {

@@ -63,7 +63,7 @@ namespace WatchShop
         private async void ProductSelected(object sender, SelectionChangedEventArgs e)
         {
             //SanPham product = (SanPham)e.CurrentSelection;
-            SanPham product = e.PreviousSelection.FirstOrDefault() as SanPham;
+            SanPham product = ListProduct.SelectedItem as SanPham;
             await Navigation.PushAsync(new DetailsPage(product));
             //SharedTransitionNavigationPage.SetTransitionSelectedGroup(this, vm.SelectedProduct.Name );
             //vm.ShowDetails();

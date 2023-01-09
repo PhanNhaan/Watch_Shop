@@ -18,6 +18,10 @@ namespace WatchShop.View
         public RegisterPage()
         {
             InitializeComponent();
+
+            if (NguoiDung.nguoidung.QUYEN == "ADMIN") { quyen.IsVisible = true; }
+            else { quyen.IsVisible = false; }
+            quyen.SelectedIndex = 0;
         }
         private void BackTapped(object sender, EventArgs e)
         {
@@ -32,7 +36,24 @@ namespace WatchShop.View
                 await DisplayAlert("Thông báo", "Mật khẩu nhập lại không đúng", "OK");
                 return;
             }
-            NguoiDung nd = new NguoiDung { TENDN = txttendn.Text, PASS = txtmatkhau.Text, EMAIL = txtEmail.Text, SDT = txtSdt.Text, QUYEN = "USER"  };
+            NguoiDung nd = new NguoiDung();
+
+            if (NguoiDung.nguoidung.QUYEN == "ADMIN")
+            {
+                nd.TENDN = txttendn.Text;
+                nd.PASS = txtmatkhau.Text;
+                nd.EMAIL = txtEmail.Text;
+                nd.SDT = txtSdt.Text;
+                nd.QUYEN = quyen.SelectedItem.ToString();
+            }
+            else 
+            {
+                nd.TENDN = txttendn.Text;
+                nd.PASS = txtmatkhau.Text;
+                nd.EMAIL = txtEmail.Text;
+                nd.SDT = txtSdt.Text;
+                nd.QUYEN = "USER";
+            }
             HttpClient http = new HttpClient();
             string jsonlh = JsonConvert.SerializeObject(nd);
             StringContent httcontent = new StringContent(jsonlh, Encoding.UTF8, "application/json");

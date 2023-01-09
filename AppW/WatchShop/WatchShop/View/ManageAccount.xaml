@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WatchShop.View.ManageAccount"
+             Shell.TabBarIsVisible="False">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Thêm"
+                     Clicked="ToolbarItem_Clicked"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+    
+    <ContentPage.Content>
+        <StackLayout>
+
+            <StackLayout Margin="15,15,15,0">
+                <Label Text="Thông tin tài khoản" FontSize="Large" TextColor="Black" FontAttributes="Bold" HorizontalOptions="Center"/>
+            </StackLayout>
+
+            <CollectionView x:Name="qltaikhoan" SelectionMode="Single">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <SwipeView>
+                            <SwipeView.RightItems>
+                                <SwipeItems SwipeBehaviorOnInvoked="RemainOpen">
+                                    <SwipeItem Text="Xóa"
+                                           IconImageSource="DeleteIcon.png"
+                                           BackgroundColor="Red"
+                                           x:Name="sw_Delete"
+                                           CommandParameter="{Binding .}"
+                                           Invoked="sw_Delete_Invoked"></SwipeItem>
+                                    <!--
+                                    <SwipeItem Text="Sửa"
+                                           IconImageSource="adduser.png"
+                                           BackgroundColor="Green"
+                                           x:Name="sw_Update"
+                                           CommandParameter="{Binding .}"
+                                           Invoked="sw_Update_Invoked"></SwipeItem>
+                                    -->
+                                </SwipeItems>
+                            </SwipeView.RightItems>
+
+                            <Grid Margin="10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                </Grid.RowDefinitions>
+                                
+                                <Label Text="{Binding TENDN, StringFormat='Tên người dùng: {0}'}" Grid.Row="0" TextColor="Black" FontSize="20"/>
+                                <Label Text="{Binding QUYEN, StringFormat='Quyền: {0}'}" Grid.Row="1" FontSize="16" TextColor="Black"/>
+                                <Label Text="{Binding SDT, StringFormat='Số điện thoại: {0}'}" Grid.Row="2"  FontSize="16" TextColor="Black" VerticalOptions="Start"/>
+                                <Label Text="{Binding SDT, StringFormat='Email: {0}'}" Grid.Row="3"  FontSize="16" TextColor="Black" VerticalOptions="Start"/>
+                            </Grid>
+
+                        </SwipeView>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

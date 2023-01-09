@@ -1,13 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="WatchShop.View.AddProduct">
+             x:Class="WatchShop.View.AddProduct"
+             Shell.TabBarIsVisible="False">
     <ContentPage.Content>
         <Grid>
             <StackLayout Margin="0,0,0,0">
                 <Frame BackgroundColor="White" HasShadow="True" HeightRequest="380" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                     <StackLayout>
-                        <Label Text="Thêm sản phẩm" FontSize="Large" TextColor="Black" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center"/>
+                        <Label x:Name="tsp" Text="Thêm sản phẩm" FontSize="Large" TextColor="Black" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center"/>
 
                         <StackLayout Orientation="Horizontal">
                             <Image Source="https://www.pngfind.com/pngs/m/673-6732463_transparent-new-icon-png-add-info-icon-png.png" WidthRequest="20" HeightRequest="20"/>
@@ -33,7 +34,9 @@
                         <StackLayout Margin="0,0,0,0">
                             <Frame BackgroundColor="Transparent"  CornerRadius="50" Padding="0" Margin="0" HorizontalOptions="FillAndExpand" >
                                 <StackLayout Orientation="Horizontal">
-                                    <Entry x:Name="gia" Placeholder=" Nhập giá cho sản phẩm." FontSize="Small" FontAttributes="Bold" HorizontalOptions="FillAndExpand"/>
+                                    <Entry x:Name="gia" Placeholder=" Nhập giá cho sản phẩm." 
+                                           FontSize="Small" FontAttributes="Bold" HorizontalOptions="FillAndExpand"
+                                           Keyboard="Numeric"/>
                                 </StackLayout>
                             </Frame>
                         </StackLayout>
@@ -70,7 +73,9 @@
                         <StackLayout Margin="0,0,0,0">
                             <Frame BackgroundColor="Transparent"  CornerRadius="50" Padding="0" Margin="0" HorizontalOptions="FillAndExpand" >
                                 <StackLayout Orientation="Horizontal">
-                                    <Entry x:Name="namsx" Placeholder=" Nhập năm sản xuất ở đây." FontSize="Small" FontAttributes="Bold" HorizontalOptions="FillAndExpand"/>
+                                    <Entry x:Name="namsx" Placeholder=" Nhập năm sản xuất ở đây." 
+                                           FontSize="Small" FontAttributes="Bold" HorizontalOptions="FillAndExpand"
+                                           Keyboard="Numeric" MaxLength="4"/>
                                 </StackLayout>
                             </Frame>
                         </StackLayout>
