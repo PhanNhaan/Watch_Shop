@@ -104,48 +104,6 @@ namespace APIWatchShop.Controllers
             }
         }
 
-        [Route("api/CartController/ThemDonHang")]
-        [HttpPost]
-        public IHttpActionResult ThemDonHang(DonHang dh)
-        {
-            try
-            {
-                Dictionary<string, object> param = new Dictionary<string, object>();
-                
-                param.Add("mand", dh.MAND);
-                param.Add("giatri", dh.GIATRI);
-
-                string kq = Database.Database.Exec_Command("ThemDonHang", param).ToString();
-
-                return Ok(kq);
-            }
-            catch
-            {
-                return NotFound();
-            }
-        }
-
-        [Route("api/CartController/ThemCTDH")]
-        [HttpPost]
-        public IHttpActionResult ThemCTDH(ChiTietDonHang ctdh)
-        {
-            try
-            {
-                Dictionary<string, object> param = new Dictionary<string, object>();
-                param.Add("masp", ctdh.MASP);
-                param.Add("madh", ctdh.MADH);
-                param.Add("sl", ctdh.SL);
-
-                string kq = Database.Database.Exec_Command("ThemCTDH", param).ToString();
-
-                return Ok(kq);
-            }
-            catch
-            {
-                return NotFound();
-            }
-        }
-
         [Route("api/CartController/XoaCTGH")]
         [HttpPost]
         public IHttpActionResult XoaCTGH(NguoiDung nd)

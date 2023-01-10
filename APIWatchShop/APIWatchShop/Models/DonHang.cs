@@ -10,7 +10,7 @@ namespace APIWatchShop.Models
         public string MADH { get; set; }
         public string MAND { get; set; }
         public string TENND { get; set; }
-        public DateTime NGAYLAP { get; set; }
+        public string NGAYLAP { get; set; }
         public int GIATRI { get; set; }
     }
 }

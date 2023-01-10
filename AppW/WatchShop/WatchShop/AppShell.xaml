@@ -48,6 +48,10 @@
                       Icon="Cart.png"
                       ContentTemplate="{DataTemplate views:CartPage}">
         </ShellContent>
+        <ShellContent Title="Danh sách đặt hàng" 
+                      Icon="order.png"
+                      ContentTemplate="{DataTemplate views:OrderPage}">
+        </ShellContent>
     </FlyoutItem>
 
     <FlyoutItem x:Name="admin" Title="Admin" IsVisible="{Binding IsAdmin}"

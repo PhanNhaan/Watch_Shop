@@ -120,7 +120,7 @@ namespace WatchShop.View
 
             string jsonlh = JsonConvert.SerializeObject(dh);
             StringContent httcontent = new StringContent(jsonlh, Encoding.UTF8, "application/json");
-            HttpResponseMessage kqdh = await http.PostAsync(Host.url.ToString() + "api/CartController/ThemDonHang", httcontent);
+            HttpResponseMessage kqdh = await http.PostAsync(Host.url.ToString() + "api/OrderController/ThemDonHang", httcontent);
             var dhtv = await kqdh.Content.ReadAsStringAsync();
 
             foreach (SanPham sp in listsp)
@@ -129,7 +129,7 @@ namespace WatchShop.View
 
                 jsonlh = JsonConvert.SerializeObject(ctdh);
                 httcontent = new StringContent(jsonlh, Encoding.UTF8, "application/json");
-                HttpResponseMessage ctdhtv = await http.PostAsync(Host.url.ToString() + "api/CartController/ThemCTDH", httcontent);
+                HttpResponseMessage ctdhtv = await http.PostAsync(Host.url.ToString() + "api/OrderController/ThemCTDH", httcontent);
             }
 
             //var xgh = await http.PostAsync(Host.url.ToString() + "api/CartController/XoaCTGH?mand=" + NguoiDung.nguoidung.MAND.ToString());
