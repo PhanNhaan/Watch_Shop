@@ -6,6 +6,7 @@
              mc:Ignorable="d" BackgroundColor="#F5F6F6"
              NavigationPage.HasNavigationBar="False"
              Shell.TabBarIsVisible="False"
+             
              x:Class="WatchShop.View.DetailsPage">
     <StackLayout>
         <ScrollView x:Name="Productdetail">
@@ -57,7 +58,7 @@
             </Grid>
         </ScrollView>
         
-        <Grid ColumnDefinitions="*,*,*,5*" Margin="5" x:Name="gh">
+        <Grid ColumnDefinitions="*,*,*,5*" Margin="5" x:Name="gh" HeightRequest="60">
             <Button x:Name="tru" Text="-" FontSize="20" TextColor="#F83A26" BackgroundColor="#F5F6F6"
                     HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold"
                     WidthRequest="46" HeightRequest="46" CornerRadius="32" 

@@ -58,9 +58,6 @@ if (NguoiDung.nguoidung == null)
             else
             {
                 NguoiDung.nguoidung = new NguoiDung();
-                //new AppShell();
-                //new App();
-                //admin.IsVisible= false;
                 bool a = await DisplayAlert("TB", "Bạn có muốn đăng xuất không!!", "Có", "Không");
                 if (a == true)
                     await Shell.Current.GoToAsync("login");

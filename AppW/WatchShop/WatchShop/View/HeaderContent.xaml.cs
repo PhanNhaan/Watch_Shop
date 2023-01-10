@@ -26,9 +26,5 @@ namespace WatchShop.View
             else tennd.Text = "Chào " + NguoiDung.nguoidung.TENDN;*/
         }
 
-        private void btnDangnhap_Clicked(object sender, EventArgs e)
-        {
-
-        }
     }
 }

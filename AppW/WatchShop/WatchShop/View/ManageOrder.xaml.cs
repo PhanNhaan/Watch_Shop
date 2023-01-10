@@ -22,6 +22,12 @@ namespace WatchShop.View
 
         }
 
+        protected override void OnAppearing()
+        {
+            ListViewInit();
+            base.OnAppearing();
+        }
+
         async void ListViewInit()
         {
             listdonhang.ItemsSource = null;

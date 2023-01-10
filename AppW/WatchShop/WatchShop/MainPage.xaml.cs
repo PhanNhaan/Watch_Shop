@@ -11,6 +11,7 @@ using WatchShop.Models;
 using Xamarin.Forms;
 using Newtonsoft.Json;
 using WatchShop.View;
+using System.Collections.ObjectModel;
 
 namespace WatchShop
 {
@@ -19,10 +20,17 @@ namespace WatchShop
     [DesignTimeVisible(false)]
     public partial class MainPage : ContentPage
     {
+        public List<SanPham> listsp =new List<SanPham>();
         public MainPage()
         {
             InitializeComponent();
             ListViewInit();
+        }
+
+        protected override void OnAppearing()
+        {
+            //ListViewInit();
+            base.OnAppearing();
         }
 
         async void ListViewInit()
@@ -31,10 +39,10 @@ namespace WatchShop
             //var productlist = await httpClient.GetStringAsync("http://192.168.1.7/WatchShop/api/MainController/GetAllProduct");
             var productlist = await httpClient.GetStringAsync(Host.url.ToString() + "api/MainController/GetAllProduct");
             var productlistConverted = JsonConvert.DeserializeObject<List<SanPham>>(productlist);
-
+            listsp = productlistConverted;
             ListProduct.ItemsSource = productlistConverted;
         }
-
+        /*
         private void OpenMenu()
         {
             MenuGrid.IsVisible = true;
@@ -60,6 +68,7 @@ namespace WatchShop
         {
             CloseMenu();
         }
+        */
         private async void ProductSelected(object sender, SelectionChangedEventArgs e)
         {
             //SanPham product = (SanPham)e.CurrentSelection;
@@ -67,6 +76,12 @@ namespace WatchShop
             await Navigation.PushAsync(new DetailsPage(product));
             //SharedTransitionNavigationPage.SetTransitionSelectedGroup(this, vm.SelectedProduct.Name );
             //vm.ShowDetails();
+        }
+
+        private void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            string text = SearchBar.Text.ToUpper();
+            ListProduct.ItemsSource = listsp.Where(i => i.TENSP.ToUpper().Contains(text));
         }
     }
 }

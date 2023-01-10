@@ -1,9 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="WatchShop.View.ManageOrder">
+             x:Class="WatchShop.View.ManageOrder"
+             Shell.TabBarIsVisible="False"
+             Title="Quản lí đơn hàng">
     <ContentPage.Content>
         <StackLayout>
+            <StackLayout>
+                <Frame HeightRequest="130" HorizontalOptions="FillAndExpand">
+                    <Image Source="https://www.thegioidongho.com.vn/wp-content/uploads/2022/04/z3362058804134_0c92e512630ee146673106351971d896-1.jpg" 
+                           Aspect="AspectFill"/>
+                </Frame>
+            </StackLayout>
+            
             <StackLayout Margin="15,15,15,0">
                 <Label Text="Thông tin đơn hàng" FontSize="Large" TextColor="Black" FontAttributes="Bold" HorizontalOptions="Center"/>
             </StackLayout>

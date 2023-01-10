@@ -1,7 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="WatchShop.View.DetailOrderPage">
+             x:Class="WatchShop.View.DetailOrderPage"
+             Shell.TabBarIsVisible="False"
+             Title="Chi tiết đơn hàng">
     <ContentPage.Content>
         <StackLayout>
             <Grid HeightRequest="200" Margin="5">

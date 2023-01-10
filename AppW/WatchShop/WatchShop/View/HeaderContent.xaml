@@ -22,18 +22,18 @@
                 <Image Aspect="AspectFit" Source="UITLogo.webp"
                    Grid.RowSpan="4" Grid.ColumnSpan="5" BackgroundColor="AliceBlue"
                    Opacity="0.5"></Image>
-
-                <Image Source="user.png" Aspect="AspectFill" Margin="0"
+<!--
+                <Image Source="user.png" Aspect="AspectFill" 
                                 Grid.Row="1" Grid.Column="1" ></Image>
-
+-->
                 <StackLayout VerticalOptions="CenterAndExpand"
-                         Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="3"
+                         Grid.RowSpan="4" Grid.ColumnSpan="5" 
                          Margin="10,0,0,0" Orientation="Vertical">
                     <Label x:Name="tennd"
-                        Text="" 
-                       HorizontalTextAlignment="Start"
+                        Text="Chào mừng bạn đến vói WatchShop" 
+                       HorizontalTextAlignment="Center"
                        VerticalTextAlignment="Center"
-                       TextColor="Black"
+                       TextColor="Black" FontSize="Large"
                        FontAttributes="Bold"></Label>
                 </StackLayout>
 
