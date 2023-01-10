@@ -23,8 +23,10 @@ namespace APIWatchShop.Controllers
                 param.Add("giatri", dh.GIATRI);
 
                 string kq = Database.Database.Exec_Command("ThemDonHang", param).ToString();
+                if (kq != null && kq != "")
+                    dh.MADH = kq;
 
-                return Ok(kq);
+                return Ok(dh);
             }
             catch
             {
@@ -78,6 +80,24 @@ namespace APIWatchShop.Controllers
                 param.Add("mand", mand);
 
                 DataTable result = Database.Database.ReadTable("TatCaDonHangTheoNguoiDung", param);
+                return Ok(result);
+            }
+            catch
+            {
+                return NotFound();
+            }
+        }
+        
+        [Route("api/OrderController/LayCTDH")]
+        [HttpGet]
+        public IHttpActionResult LayCTDH(string madh)
+        {
+            try
+            {
+                Dictionary<string, object> param = new Dictionary<string, object>();
+                param.Add("madh", madh);
+
+                DataTable result = Database.Database.ReadTable("LayCTDH", param);
                 return Ok(result);
             }
             catch

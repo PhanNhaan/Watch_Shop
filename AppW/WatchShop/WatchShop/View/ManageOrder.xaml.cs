@@ -12,12 +12,12 @@ using WatchShop.Models;
 
 namespace WatchShop.View
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class OrderPage : ContentPage
-	{
-		public OrderPage ()
-		{
-			InitializeComponent ();
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class ManageOrder : ContentPage
+    {
+        public ManageOrder()
+        {
+            InitializeComponent();
             ListViewInit();
 
         }
@@ -30,7 +30,7 @@ namespace WatchShop.View
 
             //var productlist = await httpClient.GetStringAsync(Host.url.ToString() + "api/CartController/LayGioHang?mand=" + NguoiDung.nguoidung.MAND.ToString());
 
-            var orderlist = await httpClient.GetStringAsync(Host.url.ToString() + "api/OrderController/TatCaDonHangTheoNguoiDung?mand=" + NguoiDung.nguoidung.MAND.ToString());
+            var orderlist = await httpClient.GetStringAsync(Host.url.ToString() + "api/OrderController/TatCaDonHang");
 
             var orderlistConverted = JsonConvert.DeserializeObject<List<DonHang>>(orderlist);
 

@@ -57,7 +57,7 @@
     <FlyoutItem x:Name="admin" Title="Admin" IsVisible="{Binding IsAdmin}"
              Icon="./Resources/LaptopIcon.png" 
               FlyoutDisplayOptions="AsMultipleItems">
-            <ShellContent Title="Quản lí đơn hàng" ContentTemplate="{DataTemplate views:ManageProduct}"></ShellContent>
+            <ShellContent Title="Quản lí đơn hàng" ContentTemplate="{DataTemplate views:ManageOrder}"></ShellContent>
         <ShellContent Title="Quản lí sản phẩm" ContentTemplate="{DataTemplate views:ManageProduct}"></ShellContent>
             <ShellContent Title="Quản lí người dùng" ContentTemplate="{DataTemplate views:ManageAccount}"></ShellContent>
         </FlyoutItem>

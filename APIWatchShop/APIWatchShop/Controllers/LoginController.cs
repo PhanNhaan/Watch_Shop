@@ -103,7 +103,7 @@ namespace APIWatchShop.Controllers
                 if (kq != null && kq != "")
                     nd.MAND = kq;
 
-                return Ok(nd);
+                return Ok(kq);
             }
             catch
             {

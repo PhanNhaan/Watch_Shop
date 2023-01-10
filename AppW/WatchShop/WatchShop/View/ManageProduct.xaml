@@ -24,6 +24,11 @@
             </StackLayout>
 
             <CollectionView x:Name="qlsanpham" SelectionMode="Single" SelectionChanged="qlsanpham_SelectionChanged">
+                <CollectionView.EmptyView>
+                    <Label Text="Không có sản phẩm." FontSize="20" 
+                           VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                </CollectionView.EmptyView>
+                
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <SwipeView>

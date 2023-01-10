@@ -115,21 +115,38 @@ namespace WatchShop.View
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
+            if (listsp.Count == 0)
+            {
+                await DisplayAlert("Thông Báo", "Không có sản phẩm", "ok");
+                return;
+            }
+
             DonHang dh = new DonHang { MAND = NguoiDung.nguoidung.MAND.ToString(), GIATRI = int.Parse( tong.Text) };
             HttpClient http = new HttpClient();
 
             string jsonlh = JsonConvert.SerializeObject(dh);
             StringContent httcontent = new StringContent(jsonlh, Encoding.UTF8, "application/json");
             HttpResponseMessage kqdh = await http.PostAsync(Host.url.ToString() + "api/OrderController/ThemDonHang", httcontent);
-            var dhtv = await kqdh.Content.ReadAsStringAsync();
+            //var dhtv = await kqdh.Content.ReadAsStringAsync();
+            //var dhtv = JsonConvert.SerializeObject<DonHang>(kqdh);
 
+            var jsonString = kqdh.Content.ReadAsStringAsync().Result;
+            var dhtv = JsonConvert.DeserializeObject<DonHang>(jsonString);
             foreach (SanPham sp in listsp)
             {
-                ChiTietDonHang ctdh = new ChiTietDonHang { MADH = dhtv.ToString(), MASP = sp.MASP.ToString(), SL = sp.SOLUONG };
+                ChiTietDonHang ctdh = new ChiTietDonHang { MADH = dhtv.MADH, MASP = sp.MASP.ToString(), SL = sp.SOLUONG };
 
                 jsonlh = JsonConvert.SerializeObject(ctdh);
                 httcontent = new StringContent(jsonlh, Encoding.UTF8, "application/json");
                 HttpResponseMessage ctdhtv = await http.PostAsync(Host.url.ToString() + "api/OrderController/ThemCTDH", httcontent);
+                //var ct = await ctdhtv.Content.ReadAsStringAsync();
+                var ct = ctdhtv.Content.ReadAsStringAsync().Result;
+                var ctString = JsonConvert.DeserializeObject<string>(ct);
+                if (ctString == null || ctString =="")
+                {
+                    await DisplayAlert("Thông Báo", "Mua hàng không thành công", "ok");
+                    return;
+                }
             }
 
             //var xgh = await http.PostAsync(Host.url.ToString() + "api/CartController/XoaCTGH?mand=" + NguoiDung.nguoidung.MAND.ToString());

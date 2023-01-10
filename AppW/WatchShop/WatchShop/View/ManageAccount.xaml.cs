@@ -43,6 +43,11 @@ namespace WatchShop.View
             var swipeitem = sender as SwipeItem;
             var nd = swipeitem.CommandParameter as NguoiDung;
 
+            if (nd.MAND == NguoiDung.nguoidung.MAND)
+            {
+                await DisplayAlert("Thông Báo", "Không thể xóa tài khoản này", "ok");
+            }
+
             var tb = await DisplayAlert("Thông Báo", "Bạn có muốn xóa "
                 + nd.TENDN + " không?", "Đồng Ý", "Không");
             if (tb)
@@ -53,8 +58,15 @@ namespace WatchShop.View
                 string jsonlh = JsonConvert.SerializeObject(ndx);
                 StringContent httcontent = new StringContent(jsonlh, Encoding.UTF8, "application/json");
                 HttpResponseMessage kq = await http.PostAsync(Host.url.ToString() + "api/LoginController/XoaNguoiDung", httcontent);
-
-                //await DisplayAlert("Thông Báo", "Xóa Thành Công", "Không");
+                //var ct = await kq.Content.ReadAsStringAsync();
+                var ct = kq.Content.ReadAsStringAsync().Result;
+                var ctString = JsonConvert.DeserializeObject<string>(ct);
+                if (ctString == null || ctString == "")
+                {
+                    await DisplayAlert("Thông Báo", "Xóa không thành công", "ok");
+                    return;
+                }
+                await DisplayAlert("Thông Báo", "Xóa Thành Công", "ok");
                 ListViewInit();
 
             }

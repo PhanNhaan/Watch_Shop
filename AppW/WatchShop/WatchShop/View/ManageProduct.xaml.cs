@@ -55,7 +55,14 @@ namespace WatchShop.View
                 StringContent httcontent = new StringContent(jsonlh, Encoding.UTF8, "application/json");
                 HttpResponseMessage kq = await http.PostAsync(Host.url.ToString() + "api/MainController/XoaSanPham", httcontent);
 
-                //await DisplayAlert("Thông Báo", "Xóa Thành Công", "Không");
+                var ct = kq.Content.ReadAsStringAsync().Result;
+                var ctString = JsonConvert.DeserializeObject<string>(ct);
+                if (ctString == null || ctString == "")
+                {
+                    await DisplayAlert("Thông Báo", "Xóa không thành công", "ok");
+                    return;
+                }
+                await DisplayAlert("Thông Báo", "Xóa Thành Công", "Không");
                 ListViewInit();
                 
             }

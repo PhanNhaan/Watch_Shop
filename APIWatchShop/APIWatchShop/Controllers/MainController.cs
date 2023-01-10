@@ -103,7 +103,7 @@ namespace APIWatchShop.Controllers
                     sp.MASP = kq;
                 //return kq;
 
-                return Ok(sp.MASP);
+                return Ok(kq);
             }
             catch
             {
