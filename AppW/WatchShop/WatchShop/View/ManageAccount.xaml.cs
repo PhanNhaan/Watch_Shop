@@ -21,6 +21,12 @@ namespace WatchShop.View
             ListViewInit();
         }
 
+        protected override void OnAppearing()
+        {
+            ListViewInit();
+            base.OnAppearing();
+        }
+
         async void ListViewInit()
         {
             qltaikhoan.ItemsSource = null;

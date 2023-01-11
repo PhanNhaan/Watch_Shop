@@ -38,6 +38,11 @@ namespace WatchShop.View
             qlsanpham.ItemsSource = productlistConverted;
         }
 
+        protected override void OnAppearing()
+        {
+            ListViewInit();
+            base.OnAppearing();
+        }
         private async void sw_Delete_Invoked(object sender, EventArgs e)
         {
             var swipeitem = sender as SwipeItem;

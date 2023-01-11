@@ -15,24 +15,27 @@ namespace WatchShop.View
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AddProduct : ContentPage
     {
-        SanPham sp;
+        SanPham sp =new SanPham();
+        SanPham spt = new SanPham();
         public AddProduct()
         {
             InitializeComponent();
             reset();
         }
 
-        public AddProduct(SanPham sp)
+        public AddProduct(SanPham sps)
         {
             InitializeComponent();
             tsp.Text = "Sửa sản phẩm";
-            tensp.Text = sp.TENSP;
-            gia.Text = sp.DONGIA.ToString();
-            mota.Text = sp.MOTA;
-            hinh.Text = sp.HINH;
-            namsx.Text = sp.NAMSX.ToString();
-            hangsx.Text = sp.HANGSX;
-            if (sp.GIOITINH =="Nam")
+            btnthem.Text = "Sửa sản phẩm";
+            tensp.Text = sps.TENSP;
+            gia.Text = sps.DONGIA.ToString();
+            mota.Text = sps.MOTA;
+            hinh.Text = sps.HINH;
+            namsx.Text = sps.NAMSX.ToString();
+            hangsx.Text = sps.HANGSX;
+            sp = sps;
+            if (sps.GIOITINH =="Nam")
                 gioitinh.SelectedIndex = 0;
             else gioitinh.SelectedIndex = 1;
         }
@@ -56,29 +59,32 @@ namespace WatchShop.View
                 await DisplayAlert("Thông Báo", "Phải nhập đầy đủ thông tin", "ok");
                 return;
             }
-            sp.TENSP = tensp.Text;
-            sp.DONGIA = int.Parse(gia.Text);
-            sp.MOTA = mota.Text;
-            sp.HINH = hinh.Text;
-            sp.NAMSX = int.Parse(namsx.Text);
-            sp.HANGSX = hangsx.Text;
-            sp.GIOITINH = gioitinh.SelectedItem.ToString();
+            spt.TENSP = tensp.Text;
+            spt.DONGIA = int.Parse(gia.Text);
+            spt.MOTA = mota.Text;
+            spt.HINH = hinh.Text;
+            spt.NAMSX = int.Parse(namsx.Text);
+            spt.HANGSX = hangsx.Text;
+            spt.GIOITINH = gioitinh.SelectedItem.ToString();
+            spt.MASP = sp.MASP;
 
             HttpClient http = new HttpClient();
-            string jsonlh = JsonConvert.SerializeObject(sp);
+            string jsonlh = JsonConvert.SerializeObject(spt);
             StringContent httcontent = new StringContent(jsonlh, Encoding.UTF8, "application/json");
             HttpResponseMessage kq;
-            if (sp.MASP != "" && sp.MASP != null)
-                kq = await http.PostAsync(Host.url.ToString() + "api/MainController/CapNhatSanPham", httcontent);
+            if (sp.MASP == "" || sp.MASP == null)
+                kq = await http.PostAsync(Host.url.ToString() + "api/MainController/ThemSanPham", httcontent);
             else
             {
-                kq = await http.PostAsync(Host.url.ToString() + "api/MainController/ThemSanPham", httcontent);
+                
+                kq = await http.PostAsync(Host.url.ToString() + "api/MainController/CapNhatSanPham", httcontent);
             }
             var kqtv = await kq.Content.ReadAsStringAsync();
-            sp = JsonConvert.DeserializeObject<SanPham>(kqtv);
-            if (sp.MASP != "" && sp.MASP != null)
+            var sptv = JsonConvert.DeserializeObject<SanPham>(kqtv);
+            if (sptv.MASP != "" && sptv.MASP != null)
             {
-                await DisplayAlert("Thông báo", "Cập nhật dữ liệu thành công" + sp.MASP, "ok");
+                await DisplayAlert("Thông báo", "Cập nhật dữ liệu thành công" + sptv.MASP, "ok");
+                await this.Navigation.PopAsync();
                 reset();
             }
             else
