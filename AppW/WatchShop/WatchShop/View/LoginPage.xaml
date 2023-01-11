@@ -2,15 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="WatchShop.View.LoginPage"
-             Shell.NavBarIsVisible="False"
-             >
-<!--
-    
-    <Shell.BackButtonBehavior>
-        <BackButtonBehavior Command="{Binding BackCommand}"
-                            IconOverride="back.png" 
-                            />
-    </Shell.BackButtonBehavior>-->
+             Shell.NavBarIsVisible="False">
+
     <ContentPage.Content>
         <Grid>
             

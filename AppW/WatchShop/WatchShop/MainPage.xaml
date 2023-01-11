@@ -10,14 +10,9 @@
              Title="Watch Shop"
              
              x:Class="WatchShop.MainPage">
-<!--
-    <ContentPage.BindingContext>
-        <vm:MainViewModel x:Name="vm"/>
-    </ContentPage.BindingContext>
--->
-    
+
     <ContentPage.Content>
-        <Grid>
+        <RefreshView x:Name="refresh" Refreshing="RefreshView_Refreshing">
         <Grid RowDefinitions="Auto, Auto, *" RowSpacing="30" Padding="30">
             <!--<Grid ColumnDefinitions="Auto, *, Auto">
                 <ImageButton Source="menu.png" BackgroundColor="Transparent" VerticalOptions="Center" 
@@ -47,11 +42,9 @@
             </Grid>
             <Grid Grid.Row="1" ColumnDefinitions="*, Auto" ColumnSpacing="15">
                 <Label Text="Các sản phẩm nổi bật" TextColor="#2D2942" FontSize="20" FontAttributes="Bold" VerticalOptions="Center" />
-                <!--<Image Grid.Column="1" Source="threeDots.png" VerticalOptions="Center" HeightRequest="20" 
-                       WidthRequest="20"/> -->
             </Grid>
 
-            <CollectionView x:Name="ListProduct" Grid.Row="2" SelectionMode="Single" SelectionChanged="ProductSelected">
+            <CollectionView x:Name="ListProduct" Grid.Row="2" SelectionMode="Single" SelectionChanged="ProductSelected" >
                 <CollectionView.ItemsLayout>
                     <GridItemsLayout Orientation="Vertical" Span="2"/>
                 </CollectionView.ItemsLayout>
@@ -124,6 +117,6 @@
             </Grid>
         </Grid>
             -->
-    </Grid>
+    </RefreshView>
     </ContentPage.Content>
 </ContentPage>

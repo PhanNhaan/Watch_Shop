@@ -19,7 +19,7 @@ namespace WatchShop.View
         public DetailsPage()
         {
             InitializeComponent();
-            if (NguoiDung.nguoidung.QUYEN == "ADMIN") { gh.IsVisible = false; }
+            if (NguoiDung.nguoidung.QUYEN == "ADMIN" || NguoiDung.nguoidung.QUYEN == "") { gh.IsVisible = false; }
             else { gh.IsVisible = true; }
         }
 
@@ -27,9 +27,12 @@ namespace WatchShop.View
         {
             BindingContext= product;
             InitializeComponent();
-            if (NguoiDung.nguoidung.QUYEN == "ADMIN") { gh.IsVisible = false; }
+            if (NguoiDung.nguoidung.QUYEN == "ADMIN" || NguoiDung.nguoidung.QUYEN == null || NguoiDung.nguoidung.QUYEN == "") 
+            { 
+                gh.IsVisible = false; 
+            }
             else { gh.IsVisible = true; }
-            //GetBooksBySubjectId(product.MASP);
+            
             sp = product;
         }
 

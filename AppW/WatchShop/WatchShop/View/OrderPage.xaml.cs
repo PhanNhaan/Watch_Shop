@@ -22,13 +22,16 @@ namespace WatchShop.View
 
         }
 
+        protected override void OnAppearing()
+        {
+            ListViewInit();
+            base.OnAppearing();
+        }
         async void ListViewInit()
         {
             listdonhang.ItemsSource = null;
 
             HttpClient httpClient = new HttpClient();
-
-            //var productlist = await httpClient.GetStringAsync(Host.url.ToString() + "api/CartController/LayGioHang?mand=" + NguoiDung.nguoidung.MAND.ToString());
 
             var orderlist = await httpClient.GetStringAsync(Host.url.ToString() + "api/OrderController/TatCaDonHangTheoNguoiDung?mand=" + NguoiDung.nguoidung.MAND.ToString());
 

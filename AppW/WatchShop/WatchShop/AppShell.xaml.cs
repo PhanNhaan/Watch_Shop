@@ -22,30 +22,12 @@ namespace WatchShop
 		{
 			InitializeComponent ();
             Routing.RegisterRoute("login", typeof(LoginPage));
-            btndang.Text = "Đăng Xuất";
             GoToAsync("login");
-        }
-
-        public void checkaccount()
-        {
-if (NguoiDung.nguoidung == null)
-            {
-                btndang.Text = "Đăng Nhập";
-            }
-            else
-            {
-                btndang.Text = "Đăng Xuất";
-
-            }
         }
   
         protected override void OnAppearing()
         {
-           // checkaccount();
-
             base.OnAppearing();
-            
-            
         }
 
         public async void btndangxuat_Clicked(object sender, EventArgs e)
@@ -57,10 +39,15 @@ if (NguoiDung.nguoidung == null)
             }
             else
             {
-                NguoiDung.nguoidung = new NguoiDung();
+                
                 bool a = await DisplayAlert("TB", "Bạn có muốn đăng xuất không!!", "Có", "Không");
                 if (a == true)
+                {
+                    NguoiDung.nguoidung = new NguoiDung { MAND = "" };
+                    MessagingCenter.Send<AppShell>(this, NguoiDung.nguoidung.MAND);
                     await Shell.Current.GoToAsync("login");
+
+                }
             }
         }
 

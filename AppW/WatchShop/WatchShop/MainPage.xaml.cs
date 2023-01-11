@@ -15,8 +15,6 @@ using System.Collections.ObjectModel;
 
 namespace WatchShop
 {
-    // Learn more about making custom code visible in the Xamarin.Forms previewer
-    // by visiting https://aka.ms/xamarinforms-previewer
     [DesignTimeVisible(false)]
     public partial class MainPage : ContentPage
     {
@@ -36,7 +34,6 @@ namespace WatchShop
         async void ListViewInit()
         {
             HttpClient httpClient = new HttpClient();
-            //var productlist = await httpClient.GetStringAsync("http://192.168.1.7/WatchShop/api/MainController/GetAllProduct");
             var productlist = await httpClient.GetStringAsync(Host.url.ToString() + "api/MainController/GetAllProduct");
             var productlistConverted = JsonConvert.DeserializeObject<List<SanPham>>(productlist);
             listsp = productlistConverted;
@@ -71,17 +68,23 @@ namespace WatchShop
         */
         private async void ProductSelected(object sender, SelectionChangedEventArgs e)
         {
-            //SanPham product = (SanPham)e.CurrentSelection;
+            
             SanPham product = ListProduct.SelectedItem as SanPham;
             await Navigation.PushAsync(new DetailsPage(product));
-            //SharedTransitionNavigationPage.SetTransitionSelectedGroup(this, vm.SelectedProduct.Name );
-            //vm.ShowDetails();
         }
 
         private void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
         {
             string text = SearchBar.Text.ToUpper();
             ListProduct.ItemsSource = listsp.Where(i => i.TENSP.ToUpper().Contains(text));
+        }
+
+        private void RefreshView_Refreshing(object sender, EventArgs e)
+        {
+            refresh.IsRefreshing = true;
+            ListProduct.ItemsSource = null;
+            ListViewInit();
+            refresh.IsRefreshing = false;
         }
     }
 }

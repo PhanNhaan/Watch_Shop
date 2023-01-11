@@ -46,13 +46,17 @@
                             <Label Text="(*)" FontSize="Medium" FontAttributes="Bold" TextColor="red"/>
                         </StackLayout>
 
-                        <StackLayout Margin="0,0,0,0">
+                        <ScrollView Orientation="Horizontal">
                             <Frame BackgroundColor="Transparent"  CornerRadius="50" Padding="0" Margin="0" HorizontalOptions="FillAndExpand" >
                                 <StackLayout Orientation="Horizontal">
-                                    <Entry x:Name="mota" Placeholder=" Nhập mô tả sản phẩm." FontSize="Small" FontAttributes="Bold" HorizontalOptions="FillAndExpand"/>
+                                    <Entry x:Name="mota" Placeholder=" Nhập mô tả sản phẩm." 
+                                           FontSize="Small" FontAttributes="Bold" 
+                                           HorizontalOptions="FillAndExpand"
+                                           MaxLength="1000" />
+
                                 </StackLayout>
                             </Frame>
-                        </StackLayout>
+                        </ScrollView>
 
                         <StackLayout Orientation="Horizontal">
                             <Image Source="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Picture_icon_BLACK.svg/1200px-Picture_icon_BLACK.svg.png" WidthRequest="20" HeightRequest="20"/>
@@ -60,13 +64,13 @@
                             <Label Text="(*)" FontSize="Medium" FontAttributes="Bold" TextColor="red"/>
                         </StackLayout>
 
-                        <StackLayout Margin="0,0,0,0">
+                        <ScrollView Orientation="Horizontal">
                             <Frame BackgroundColor="Transparent"  CornerRadius="50" Padding="0" Margin="0" HorizontalOptions="FillAndExpand" >
                                 <StackLayout Orientation="Horizontal">
                                     <Entry x:Name="hinh" Placeholder=" Nhập URL của hình ảnh tại đây." FontSize="Small" FontAttributes="Bold" HorizontalOptions="FillAndExpand"/>
                                 </StackLayout>
                             </Frame>
-                        </StackLayout>
+                        </ScrollView>
 
                         <Label Text=" Năm sản xuất " FontSize="Medium" FontAttributes="Bold" TextColor="Black"/>
 

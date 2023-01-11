@@ -53,6 +53,14 @@ namespace WatchShop.ViewModel
                 IsAccount = true;
                 IsAdmin = false;
             });
+
+            MessagingCenter.Subscribe<AppShell>(this, "", (sender) =>
+            {
+                Dangnhap = "Đăng Nhập";
+                IsAdmin = false;
+                IsAccount = false;
+            });
+
             /*
             if (NguoiDung.nguoidung.QUYEN == "ADMIN" )
             {
@@ -65,8 +73,6 @@ namespace WatchShop.ViewModel
             }*/
 
         }
-
-        //public string Dangnhap { get => dangnhap; set => SetProperty() }
 
         public async void Check()
         {

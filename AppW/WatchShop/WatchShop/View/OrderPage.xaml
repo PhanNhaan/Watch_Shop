@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="WatchShop.View.OrderPage"
              Shell.TabBarIsVisible="False"
-             BackgroundColor="#F5F6F6">
+             BackgroundColor="#F5F6F6"
+             Title="Danh sách đặt hàng">
     <ContentPage.Content>
         <StackLayout>
 

@@ -39,10 +39,8 @@ namespace WatchShop.View
             var nd = JsonConvert.DeserializeObject<Models.NguoiDung>(kq);
             if (nd.TENDN != "" && nd.TENDN != null)
             {
-                //await DisplayAlert("TB", " Chào Ban :" + nd.TENDN, "OK");
                 NguoiDung.nguoidung = nd;
 
-                //ViewModel.AppViewModel.Check();
                 MessagingCenter.Send<LoginPage>(this, NguoiDung.nguoidung.QUYEN);
                 MessagingCenter.Send<LoginPage>(this, NguoiDung.nguoidung.MAND);
 
@@ -50,14 +48,6 @@ namespace WatchShop.View
                 //(NguoiDung.nguoidung.QUYEN == "ADMIN") ? "ADMIN" : "USER");
 
                 await Shell.Current.GoToAsync("//main");
-
-                //await Navigation.PushAsync(new AppShell());
-                //Appearing new AppShell();
-                //Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 1]);
-                //Navigation.InsertPageBefore(new AppShell(), this);
-                //await Navigation.PopAsync();
-                //await Shell.Current.Navigation.PushAsync(new AppShell());
-                //Shell.Current.Navigation.PushAsync(new AppShell());
             }
             else
                 await DisplayAlert("TB", " Đăng Nhập Sai :", "OK");

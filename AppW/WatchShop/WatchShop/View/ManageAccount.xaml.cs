@@ -33,8 +33,6 @@ namespace WatchShop.View
 
             HttpClient httpClient = new HttpClient();
 
-            //var productlist = await httpClient.GetStringAsync(Host.url.ToString() + "api/CartController/LayGioHang?mand=" + NguoiDung.nguoidung.MAND.ToString());
-
             var accountlist = await httpClient.GetStringAsync(Host.url.ToString() + "api/LoginController/TatCaNguoiDung");
 
             var accountlistConverted = JsonConvert.DeserializeObject<List<NguoiDung>>(accountlist);
@@ -64,7 +62,7 @@ namespace WatchShop.View
                 string jsonlh = JsonConvert.SerializeObject(ndx);
                 StringContent httcontent = new StringContent(jsonlh, Encoding.UTF8, "application/json");
                 HttpResponseMessage kq = await http.PostAsync(Host.url.ToString() + "api/LoginController/XoaNguoiDung", httcontent);
-                //var ct = await kq.Content.ReadAsStringAsync();
+                
                 var ct = kq.Content.ReadAsStringAsync().Result;
                 var ctString = JsonConvert.DeserializeObject<string>(ct);
                 if (ctString == null || ctString == "")

@@ -34,8 +34,6 @@ namespace WatchShop.View
 
             HttpClient httpClient = new HttpClient();
 
-            //var productlist = await httpClient.GetStringAsync(Host.url.ToString() + "api/CartController/LayGioHang?mand=" + NguoiDung.nguoidung.MAND.ToString());
-
             var orderlist = await httpClient.GetStringAsync(Host.url.ToString() + "api/OrderController/TatCaDonHang");
 
             var orderlistConverted = JsonConvert.DeserializeObject<List<DonHang>>(orderlist);
